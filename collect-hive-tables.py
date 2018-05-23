@@ -21,8 +21,7 @@ print('Found {} tables from hive.'.format(len(table_names)))
 
 # Get tables as .csv
 for tname in table_names:
-    command = split(HIVE_BIN_PATH + " -e 'select * from " + tname + "' | sed 's/[\t]/,/g' > " + OUTPUT_CSV_DIR + tname + ".csv" )
-    subprocess.call(command)
+    os.system(HIVE_BIN_PATH + " -e 'select * from " + tname + "' | sed 's/[\t]/,/g' > " + OUTPUT_CSV_DIR + tname + ".csv")
 
 
 
