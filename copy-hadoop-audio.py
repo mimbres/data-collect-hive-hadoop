@@ -22,7 +22,8 @@ print('Found {} sub-directories in media_files directory.'.format(total_dir))
 cnt = 1
 for dir in dir_all:
     dir_source = dir
-    dir_target = OUTPUT_MP3_DIR
+    dir_target = TMP_MP3_DIR
+    # copy to local tmp directory
     command = HADOOP_BIN_PATH + " fs -copyToLocal " + dir_source + " " + dir_target 
     assert(0==os.system(command)) # error if 'hadoop fs -copyToLocal' command was unsuccessful
     os.system("du -bsh " + TMP_MP3_DIR + "*")
