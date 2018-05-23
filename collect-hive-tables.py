@@ -1,4 +1,5 @@
 import subprocess # required for executing command line
+import os
 from shlex import split
 
 # File path
@@ -7,6 +8,10 @@ HIVE_BIN_PATH = '/home/hadoop/hive/bin/hive'
 OUTPUT_CSV_DIR = '/home/1ronyar/melon-dataset/hive-tables/'
 OUTPUT_MP3_DIR = '/home/1ronyar/melon-dataset/audio/'
 
+if not os.path.exists(OUTPUT_CSV_DIR):
+    os.makedirs(OUTPUT_CSV_DIR)
+if not os.path.exists(OUTPUT_MP3_DIR):
+    os.makedirs(OUTPUT_MP3_DIR)
 
 # Get a list of table names
 command = split(HIVE_BIN_PATH + " -e 'show tables'")
