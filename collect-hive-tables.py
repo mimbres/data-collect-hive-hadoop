@@ -20,8 +20,7 @@ table_names = result.decode("utf-8").split()
 print('Found {} tables from hive.'.format(len(table_names)))
 
 # Select tables!
-table_names = table_names[5,6,7,14]
-
+table_names = [table_names[5], table_names[6], table_names[7], table_names[14]]
 # Get tables as .csv
 for tname in table_names:
     os.system(HIVE_BIN_PATH + " -e 'select * from " + tname + "' | sed 's/[\t]/,/g' > " + OUTPUT_CSV_DIR + tname + ".csv")
